@@ -1,4 +1,4 @@
-#include "stack.h"
+#include "Stack.hpp"
 #include <stdexcept> // for std::out_of_range
 #include <algorithm> // for std::swap
 

@@ -15,7 +15,7 @@ public:
 
     void push(const T& value);
     void push(T&& value);
-    void pop();
+    T pop();
     T& top();
     const T& top() const;
 
