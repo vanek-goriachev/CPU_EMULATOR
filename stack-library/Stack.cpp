@@ -13,9 +13,8 @@ Stack<T>::Stack(const Stack& other) : array(nullptr), capacity(other.capacity), 
     }
 }
 
-
 template <typename T>
-Stack<T>& Stack<T>::operator=(Stack other) {
+Stack<T>& Stack<T>::operator=(const Stack& other) {
     swap(*this, other);
     return *this;
 }

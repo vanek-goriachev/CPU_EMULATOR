@@ -8,7 +8,7 @@ class Stack {
 public:
     Stack();
     Stack(const Stack& other);
-    Stack& operator=(const Stack other);
+    Stack& operator=(const Stack& other);
     Stack(Stack&& other) noexcept;
     Stack& operator=(Stack&& other);
     ~Stack();
