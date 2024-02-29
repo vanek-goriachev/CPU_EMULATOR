@@ -3,8 +3,7 @@
 
 On Mac: 
     build: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
-    
-    For run anything first of all do: cd build
+
     build tests: cmake --build build --target tests
     run tests: build/tests/tests
 

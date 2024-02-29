@@ -51,7 +51,9 @@ Stack<T>::Stack(const Stack<T> &other) : array(nullptr), capacity(other.capacity
 
 template<typename T>
 Stack<T> &Stack<T>::operator=(const Stack<T> &other) {
-    delete[] this->array;
+    if (this->array != nullptr) {
+        delete[] this->array;
+    }
 
     this->capacity = other.capacity;
     this->topIndex = other.topIndex;
@@ -67,7 +69,6 @@ Stack<T> &Stack<T>::operator=(const Stack<T> &other) {
 
 template<typename T>
 Stack<T>::Stack(Stack &&other) noexcept {
-    delete[] this->array;
     this->capacity = other.capacity;
     this->topIndex = other.topIndex;
     this->array = other.array;
@@ -80,7 +81,9 @@ Stack<T>::Stack(Stack &&other) noexcept {
 template<typename T>
 Stack<T> &Stack<T>::operator=(Stack &&other) noexcept {
     if (this != &other) {
-        delete[] array;
+        if (this->array != nullptr) {
+            delete[] this->array;
+        }
         array = other.array;
         capacity = other.capacity;
         topIndex = other.topIndex;
