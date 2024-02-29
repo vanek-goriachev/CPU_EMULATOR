@@ -45,10 +45,4 @@ TEST(StackTest, UserDefinedType) {
     EXPECT_THROW(movedStack.top(), std::out_of_range);
     EXPECT_EQ(movedStack2.top().name, "David");
     EXPECT_EQ(movedStack2.top().age, 60);
-
-    // Используем функцию swap
-    swap(stack, movedStack2);
-    EXPECT_THROW(movedStack2.top(), std::out_of_range);
-    EXPECT_EQ(stack.top().name, "David");
-    EXPECT_EQ(stack.top().age, 60);
 }

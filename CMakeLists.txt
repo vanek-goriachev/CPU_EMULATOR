@@ -9,9 +9,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_executable(${PROJECT_NAME} main.cpp)
 
-add_subdirectory(stack-library)
+#add_subdirectory(stack-library)
 add_subdirectory(tests)
 
-target_link_libraries(${PROJECT_NAME} stack-library)
+#target_link_libraries(${PROJECT_NAME} stack-library)
 
 add_custom_target(run COMMAND ${PROJECT_NAME})
