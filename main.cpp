@@ -53,7 +53,7 @@ void run_progress_bar(float sleep_time) {
     std::cout << std::endl;
 }
 
-int main(int argc, char *argv[]) {
+int main() {
     string buffer;
     cout << "Это калькулятор который работает безошибочно. \nВведите первое число: ";
     cin >> buffer;

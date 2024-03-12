@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include <stack-library/Stack.hpp>
+#include <Stack.hpp>
 
 TEST(StackTest, Expand) {
     Stack<int> stack;
