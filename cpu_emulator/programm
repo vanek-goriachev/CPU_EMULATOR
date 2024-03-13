@@ -1,0 +1,4 @@
+BEGIN
+POP
+PUSH 5
+END
