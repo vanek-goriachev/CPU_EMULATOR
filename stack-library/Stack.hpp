@@ -30,6 +30,9 @@ public:
 
     const T &top() const;
 
+    template<typename... Args>
+    void emplace(Args&&... args);
+
 private:
     void expand();
 
@@ -102,42 +105,17 @@ Stack<T>::~Stack() {
 
 template<typename T>
 void Stack<T>::push(const T &value) {
-    // Проверяем, достаточно ли в массиве места для нового элемента
     if (topIndex + 1 >= capacity) {
-        // Если нет - удваиваем размер массива
-        int newCapacity = (capacity == 0) ? 2 : capacity * 2;
-        T *newArray = new T[newCapacity]{};
-
-        // Копируем элементы из старого массива в новый
-        for (int i = 0; i < capacity; ++i) {
-            newArray[i] = std::move(array[i]);
-        }
-
-        // Удаляем старый массив и обновляем указатель
-        delete[] array;
-        array = newArray;
-
-        // Обновляем вместимость массива
-        capacity = newCapacity;
+        expand();
     }
 
-    // Добавляем элемент в верхнюю часть стека
     array[++topIndex] = value;
 }
 
 template<typename T>
 void Stack<T>::push(T &&value) {
     if (topIndex + 1 >= capacity) {
-        int newCapacity = (capacity == 0) ? 2 : capacity * 2;
-        T *newArray = new T[newCapacity];
-
-        for (int i = 0; i < capacity; ++i) {
-            newArray[i] = std::move(array[i]);
-        }
-
-        delete[] array;
-        array = newArray;
-        capacity = newCapacity;
+        expand();
     }
 
     array[++topIndex] = std::move(value);
@@ -182,4 +160,14 @@ void Stack<T>::expand() {
 
     array = newArray;
     capacity = newCapacity;
+}
+
+template<typename T>
+template<typename... Args>
+void Stack<T>::emplace(Args&&... args) {
+    if (topIndex + 1 >= capacity) {
+        expand();
+    }
+
+    array[++topIndex] = T(std::forward<Args>(args)...);
 }
