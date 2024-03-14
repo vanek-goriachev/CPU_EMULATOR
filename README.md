@@ -7,7 +7,6 @@ On Mac:
         make test
 
     RUNNING:
-        cd cpu_emulator
-        make run PROGRAM_FILE=<filepath>
-        
-        example: make run PROGRAM_FILE=examples/fibonacci
+        cd cpu_emulator && make run PROGRAM_FILE=<filepath>
+
+        example: cd cpu_emulator && make run PROGRAM_FILE=examples/fibonacci
