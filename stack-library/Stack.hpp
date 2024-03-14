@@ -11,23 +11,19 @@ public:
     Stack();
 
     Stack(const Stack &other);
-
-    Stack &operator=(const Stack &other);
-
     Stack(Stack &&other) noexcept;
 
+    Stack &operator=(const Stack &other);
     Stack &operator=(Stack &&other) noexcept;
 
     ~Stack();
 
     void push(const T &value);
-
     void push(T &&value);
 
     T pop();
 
     T &top();
-
     const T &top() const;
 
     template<typename... Args>
