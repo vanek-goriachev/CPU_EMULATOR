@@ -2,10 +2,12 @@
 
 
 On Mac: 
-    build: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+    TESTING:
+        cd tests
+        make test
 
-    build tests: cmake --build build --target tests
-    run tests: build/tests/tests
-
-    build and run runnn: cmake --build build --target run
-    to run it again: build/CPU_EMULATOR
+    RUNNING:
+        cd cpu_emulator
+        make run PROGRAM_FILE=<filepath>
+        
+        example: make run PROGRAM_FILE=examples/fibonacci

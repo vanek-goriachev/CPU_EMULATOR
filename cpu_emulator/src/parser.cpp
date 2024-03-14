@@ -213,6 +213,36 @@ Command Parser::parse_command_line()
             to_return = Command(new CommandPopr(reg));
             break;
         }
+        case CommandType::ADD:
+        {
+            to_return = Command(new CommandAdd());
+            break;
+        }
+        case CommandType::SUB:
+        {
+            to_return = Command(new CommandSub());
+            break;
+        }
+        case CommandType::MUL:
+        {
+            to_return = Command(new CommandMul());
+            break;
+        }
+        case CommandType::DIV:
+        {
+            to_return = Command(new CommandDiv());
+            break;
+        }
+        case CommandType::OUT:
+        {
+            to_return = Command(new CommandOut());
+            break;
+        }
+        case CommandType::IN:
+        {
+            to_return = Command(new CommandIn());
+            break;
+        }
         default:
         {
             throw std::runtime_error("Parser::parse_command_line(): invalid command id");

@@ -4,6 +4,8 @@
 #include <vector>
 #include <stdexcept>
 
+#include "Stack.hpp"
+#include "iostream"
 //---------------
 // CPU commands
 //---------------
@@ -15,13 +17,13 @@ static std::vector<std::string> CMD_NAME_TO_CMD_ID = {
         "PUSH",    // CommandType::PUSH
         "POP",     // CommandType::POP
         "PUSHR",   // CommandType::PUSHR
-        "POPR"     // CommandType::POPR
-        "ADD"      // CommandType::ADD
-        "SUB"      // CommandType::SUB
-        "MUL"      // CommandType::MUL
-        "DIV"      // CommandType::DIV
-        "OUT"      // CommandType::OUT
-        "IN"       // CommandType::IN
+        "POPR",     // CommandType::POPR
+        "ADD",      // CommandType::ADD
+        "SUB",      // CommandType::SUB
+        "MUL",      // CommandType::MUL
+        "DIV",      // CommandType::DIV
+        "OUT",      // CommandType::OUT
+        "IN",       // CommandType::IN
 };
 
 Cmd_t get_command_id(std::string str)
@@ -34,7 +36,7 @@ Cmd_t get_command_id(std::string str)
         }
     }
 
-    throw std::runtime_error("parse_command_name(): unknown command name!");
+    throw std::runtime_error("parse_command_name(): unknown command name = " + str);
 }
 
 //---------------
@@ -61,12 +63,16 @@ Reg_t get_register_id(std::string str)
         }
     }
 
-    throw std::runtime_error("parse_register_name(): unknown register name!");
+    throw std::runtime_error("parse_register_name(): unknown register name = " + str);
 }
 
 std::string get_register_name(Reg_t reg)
 {
     return REG_NAME_TO_REG_ID.at(reg);
+}
+
+void set_register_value(int val, Reg_t reg) {
+    REGISTER_VALUES[reg] = val;
 }
 
 //------------
@@ -78,3 +84,5 @@ Val_t get_value(std::string str)
     // NOTE: If no conversion can be performed, 0 is returned.
     return std::atoi(str.c_str());
 }
+
+Stack<int> program_stack;

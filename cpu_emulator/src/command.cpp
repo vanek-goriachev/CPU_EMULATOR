@@ -4,6 +4,7 @@
 #include <cstdio>
 #include <stdexcept>
 
+#include "iostream"
 //----------------------
 // Command construction
 //----------------------
@@ -37,51 +38,76 @@ void CommandEnd::execute() const
 void CommandPush::execute() const
 {
     if (DEBUG_MODE) {printf("PUSH %d\n", val_);}
+    program_stack.push(val_);
 }
 
 void CommandPop::execute() const
 {
     if (DEBUG_MODE) {printf("POP\n");}
+    program_stack.pop();
 }
 
 void CommandPushr::execute() const
 {
     if (DEBUG_MODE) {printf("PUSHR %s\n", get_register_name(reg_).c_str());}
+    program_stack.push(reg_);
 }
 
 void CommandPopr::execute() const
 {
     if (DEBUG_MODE) {printf("POPR %s\n", get_register_name(reg_).c_str());}
+    set_register_value(program_stack.pop(), reg_);
 }
 
 void CommandAdd::execute() const
 {
     if (DEBUG_MODE) {printf("ADD\n");}
+    int a = program_stack.pop(), b = program_stack.top();
+    program_stack.push(a);
+    // TODO check overflow
+    program_stack.push(a+b);
 }
 
 void CommandSub::execute() const
 {
     if (DEBUG_MODE) {printf("SUB\n");}
+    int a = program_stack.pop(), b = program_stack.top();
+    program_stack.push(a);
+    // TODO check overflow
+    program_stack.push(a-b);
 }
 
 void CommandMul::execute() const
 {
     if (DEBUG_MODE) {printf("MUL\n");}
+    int a = program_stack.pop(), b = program_stack.top();
+    program_stack.push(a);
+    // TODO check overflow
+    program_stack.push(a*b);
 }
 
 void CommandDiv::execute() const
 {
     if (DEBUG_MODE) {printf("DIV\n");}
+    int a = program_stack.pop(), b = program_stack.top();
+    program_stack.push(a);
+    // TODO check overflow
+    program_stack.push(a/b);
 }
 
 void CommandOut::execute() const
 {
     if (DEBUG_MODE) {printf("OUT\n");}
+    int a = program_stack.pop();
+    std::cout << a << std::endl;
 }
 
 void CommandIn::execute() const
 {
     if (DEBUG_MODE) {printf("IN\n");}
+    int a;
+    std::cin >> a;
+    program_stack.push(a);
 }
 //--------------------------
 // Polymorphic command type
