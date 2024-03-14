@@ -71,6 +71,8 @@ std::string get_register_name(Reg_t reg)
     return REG_NAME_TO_REG_ID.at(reg);
 }
 
+static int REGISTER_VALUES[] = {0, 0, 0, 0, 0, 0, 0};
+
 void set_register_value(int val, Reg_t reg) {
     REGISTER_VALUES[reg] = val;
 }

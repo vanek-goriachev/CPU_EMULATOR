@@ -32,7 +32,4 @@ typedef int32_t Val_t;
 
 Val_t get_value(std::string str);
 
-static bool DEBUG_MODE = false;
-
 extern Stack<int> program_stack;
-static int REGISTER_VALUES[] = {0, 0, 0, 0, 0, 0, 0};

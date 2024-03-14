@@ -5,6 +5,9 @@
 #include <stdexcept>
 
 #include "iostream"
+
+#define DEBUG_MODE false
+
 //----------------------
 // Command construction
 //----------------------

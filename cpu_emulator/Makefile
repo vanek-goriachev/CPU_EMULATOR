@@ -30,6 +30,7 @@ OBJECTS = $(SOURCES:src/%.cpp=../build/%.o)
 default: $(PROJECT_NAME)
 
 $(PROJECT_NAME): $(OBJECTS)
+	$(clean)
 	@mkdir -p ../build
 	$(CC) $(OBJECTS) -o ../build/$(PROJECT_NAME)
 
