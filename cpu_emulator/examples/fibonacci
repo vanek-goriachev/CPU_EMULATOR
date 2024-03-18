@@ -1,6 +1,9 @@
 BEGIN
     PUSH 1
-    PUSH 1
+
+    POPR AX
+    PUSHR AX
+    PUSHR AX
 
     ADD
     ADD

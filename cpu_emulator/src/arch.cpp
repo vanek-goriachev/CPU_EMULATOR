@@ -77,6 +77,10 @@ void set_register_value(int val, Reg_t reg) {
     REGISTER_VALUES[reg] = val;
 }
 
+int get_register_value(Reg_t reg) {
+    return REGISTER_VALUES[reg];
+}
+
 //------------
 // CPU Values
 //------------

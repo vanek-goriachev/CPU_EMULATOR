@@ -53,7 +53,7 @@ void CommandPop::execute() const
 void CommandPushr::execute() const
 {
     if (DEBUG_MODE) {printf("PUSHR %s\n", get_register_name(reg_).c_str());}
-    program_stack.push(reg_);
+    program_stack.push(get_register_value(reg_));
 }
 
 void CommandPopr::execute() const

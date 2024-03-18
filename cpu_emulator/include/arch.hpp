@@ -23,6 +23,7 @@ typedef uint8_t Reg_t;
 Reg_t get_register_id(std::string str);
 std::string get_register_name(Reg_t reg);
 void set_register_value(int val, Reg_t reg);
+int get_register_value(Reg_t reg);
 
 //------------
 // CPU Values
