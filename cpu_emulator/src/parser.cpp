@@ -99,6 +99,15 @@ bool Parser::parse_newline_sequence()
     return success;
 }
 
+bool Parser::skip_comment_line() {
+    static const std::regex pattern{"#.*"};
+
+    bool match_status = parse_pattern(pattern);
+    if (match_status) {read_line_from_file();};
+
+    return match_status;
+}
+
 bool Parser::parse_end_of_file()
 {
     return file_.eof();
@@ -109,7 +118,9 @@ Cmd_t Parser::parse_command_name()
     static const std::regex pattern{"[a-zA-Z]+"};
 
     // Skip leading whitespaces (may be none):
-    parse_space_sequence();
+    while (parse_space_sequence() or skip_comment_line())
+    {
+    }
 
     // Perform parsing:
     std::string cmd_name;

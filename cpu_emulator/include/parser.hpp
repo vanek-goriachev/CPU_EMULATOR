@@ -45,6 +45,7 @@ private:
     bool parse_space_sequence();
     bool parse_newline_sequence();
     bool parse_end_of_file();
+    bool skip_comment_line();
 
     Cmd_t parse_command_name();
     Reg_t parse_register_name();
