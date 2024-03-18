@@ -118,9 +118,7 @@ Cmd_t Parser::parse_command_name()
     static const std::regex pattern{"[a-zA-Z]+"};
 
     // Skip leading whitespaces (may be none):
-    while (parse_space_sequence() or skip_comment_line())
-    {
-    }
+    while (parse_space_sequence() or parse_newline_sequence() or skip_comment_line()) {}
 
     // Perform parsing:
     std::string cmd_name;

@@ -3,6 +3,52 @@ BEGIN
 # adsfasdf
     # asdfasdfasdf
         # afagasfgadsfasdfasdf
+
+# every comment should
+# be written on its own
+# line. otherwise the
+# program will not work
+
+# this is a genius
+# architectural decision
+# provided by the developer
+# of this AMAZING LANGUAGE
+# (me)
+
+# the idea is that programs
+# written in this AMAZING
+# LANGUAGE are
+# always long vertically
+# and short horizontally.
+# so adding comments
+# on the right
+# from the commands
+# will break this pattern.
+# And this means that
+# programmer would not
+# have an opportunity to
+# have 10 "columns" of code
+# opened at once.
+# however it is very important
+# i decided that language will
+# have that restriction
+
+# also comments in russian
+# are not supported
+# because its better to write
+# them in english so our foreign
+# friends will be able to
+# understand this code
+
+    # btw russian comments just
+    # dont work so i created a
+    # legend for that above
+
+    # i also didnt use any
+    # translators while writing this
+    # whole text for
+    # a better comedic effect
+
     POPR AX
     PUSHR AX
     PUSHR AX
